@@ -9,7 +9,7 @@ import {
 	InputBase,
 } from '@mui/material';
 
-import Grid from '@mui/material/Grid';
+import {Grid} from '@mui/material';
 import {getItems, patchItemOrder, updateItem} from '../crudOperation/apiService';
 import {useEffect, useState} from 'react';
 import EditIcon from '@mui/icons-material/Edit';
@@ -154,7 +154,7 @@ export default function Dashboard({ }: ListItemProps) {
 
 	return (
 		<Box sx={{width: '80%', px: 2, py: 3, paddingBottom: "3rem", margin: "5rem auto"}}>
-			<Grid container size={{xs: 10, md: 10}} sx={{display: "flex", justifyContent: "space-between"}}>
+			<Grid item xs={10} md={10} sx={{display: "flex", justifyContent: "space-between"}}>
 				<Typography variant="h5" sx={{width: '50%', px: 5}} fontWeight={600} gutterBottom>
 					All List : <span color='white' >({rows?.length > 0 && rows.length})</span>
 				</Typography>
@@ -179,7 +179,10 @@ export default function Dashboard({ }: ListItemProps) {
 				rows?.length > 0 && <Box sx={{cursor: "pointer", mt: 5, mb: 5}}>
 					<Grid container justifyContent="center">
 						<Grid
-							size={{xs: 12, md: 10}}
+							container
+							item
+							xs={12}
+							md={10}
 							sx={{
 								width: "90%",
 								borderRadius: ".3rem",
@@ -191,7 +194,9 @@ export default function Dashboard({ }: ListItemProps) {
 						>
 
 							<Grid
-								size={{xs: 10, md: 4}}
+								item
+								md={4}
+								xs={12}
 								sx={{
 									width: "30%",
 									display: "flex",
@@ -203,7 +208,9 @@ export default function Dashboard({ }: ListItemProps) {
 							</Grid>
 
 							<Grid
-								size={{xs: 10, md: 5}}
+								item
+								md={5}
+								xs={12}
 								sx={{
 									width: "50%",
 									display: "flex",
@@ -215,7 +222,9 @@ export default function Dashboard({ }: ListItemProps) {
 							</Grid>
 
 							<Grid
-								size={{xs: 10, md: 3}}
+								item
+								md={3}
+								xs={12}
 								sx={{
 									width: "20%",
 									display: "flex",
@@ -260,7 +269,10 @@ export default function Dashboard({ }: ListItemProps) {
 					>
 						<Grid container justifyContent="center">
 							<Grid
-								size={{xs: 12, md: 10}}
+								container
+								item
+								xs={12}
+								md={10}
 								sx={{
 									width: "90%",
 									borderRadius: ".3rem",
@@ -275,7 +287,9 @@ export default function Dashboard({ }: ListItemProps) {
 							>
 								{/* Title */}
 								<Grid
-									size={{xs: 10, md: 4}}
+									item
+									md={4}
+									xs={12}
 									sx={{
 										width: "30%",
 										display: "flex",
@@ -288,7 +302,9 @@ export default function Dashboard({ }: ListItemProps) {
 
 								{/* Description */}
 								<Grid
-									size={{xs: 12, md: 5}}
+									item
+									md={5}
+									xs={12}
 									sx={{
 										width: "50%",
 										display: "flex",
@@ -301,7 +317,9 @@ export default function Dashboard({ }: ListItemProps) {
 
 								{/* Action Buttons */}
 								<Grid
-									size={{xs: 10, md: 3}}
+									item
+									md={3}
+									xs={12}
 									sx={{
 										width: "20%",
 										display: "flex",
