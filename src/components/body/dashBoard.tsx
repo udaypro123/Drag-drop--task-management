@@ -4,12 +4,12 @@ import {
 	Box,
 	Typography,
 	Button,
-	Grid,
 	Tooltip,
 	styled,
-	alpha,
 	InputBase,
 } from '@mui/material';
+
+import Grid from '@mui/material/Grid';
 import {getItems, patchItemOrder, updateItem} from '../crudOperation/apiService';
 import {useEffect, useState} from 'react';
 import EditIcon from '@mui/icons-material/Edit';
@@ -111,7 +111,7 @@ export default function Dashboard({ }: ListItemProps) {
 		fetchItems();
 	}
 
-	const handleDrop = async (e: React.DragEvent<HTMLDivElement>, index: number) => {
+	const handleDrop = async (index: number) => {
 		if (draggedIndex === null || draggedIndex === index) return;
 
 		const updated = [...rows];
@@ -154,7 +154,7 @@ export default function Dashboard({ }: ListItemProps) {
 
 	return (
 		<Box sx={{width: '80%', px: 2, py: 3, paddingBottom: "3rem", margin: "5rem auto"}}>
-			<Grid xs={10} md={10} sx={{display: "flex", justifyContent: "space-between"}}>
+			<Grid container size={{xs: 10, md: 10}} sx={{display: "flex", justifyContent: "space-between"}}>
 				<Typography variant="h5" sx={{width: '50%', px: 5}} fontWeight={600} gutterBottom>
 					All List : <span color='white' >({rows?.length > 0 && rows.length})</span>
 				</Typography>
@@ -179,10 +179,7 @@ export default function Dashboard({ }: ListItemProps) {
 				rows?.length > 0 && <Box sx={{cursor: "pointer", mt: 5, mb: 5}}>
 					<Grid container justifyContent="center">
 						<Grid
-							container
-							item
-							xs={12}
-							md={10}
+							size={{xs: 12, md: 10}}
 							sx={{
 								width: "90%",
 								borderRadius: ".3rem",
@@ -194,9 +191,7 @@ export default function Dashboard({ }: ListItemProps) {
 						>
 
 							<Grid
-								item
-								md={4}
-								xs={12}
+								size={{xs: 10, md: 4}}
 								sx={{
 									width: "30%",
 									display: "flex",
@@ -208,9 +203,7 @@ export default function Dashboard({ }: ListItemProps) {
 							</Grid>
 
 							<Grid
-								item
-								md={5}
-								xs={12}
+								size={{xs: 10, md: 5}}
 								sx={{
 									width: "50%",
 									display: "flex",
@@ -222,9 +215,7 @@ export default function Dashboard({ }: ListItemProps) {
 							</Grid>
 
 							<Grid
-								item
-								md={3}
-								xs={12}
+								size={{xs: 10, md: 3}}
 								sx={{
 									width: "20%",
 									display: "flex",
@@ -239,29 +230,6 @@ export default function Dashboard({ }: ListItemProps) {
 					</Grid>
 				</Box>
 			}
-
-
-			{/* {
-				<Box sx={{cursor: "pointer", mt: 2, mb: 1}}>
-					<Grid container justifyContent="center">
-						<Grid
-							container
-							item
-							xs={12}
-							md={10}
-							sx={{
-								width: "90%",
-								borderRadius: ".3rem",
-								boxShadow: " 0px -7px 0px -3px rgb(255, 255, 255)",
-								padding: 2,
-							}}
-							alignItems="center"
-						>
-
-						</Grid>
-					</Grid>
-				</Box>
-			} */}
 
 
 			<Box
@@ -287,15 +255,12 @@ export default function Dashboard({ }: ListItemProps) {
 						draggable
 						onDragStart={() => setDraggedIndex(index)}
 						onDragOver={(e) => e.preventDefault()}
-						onDrop={(e) => handleDrop(e, index)}
+						onDrop={() => handleDrop(index)}
 						sx={{cursor: "pointer", mt: 3, }}
 					>
 						<Grid container justifyContent="center">
 							<Grid
-								container
-								item
-								xs={12}
-								md={10}
+								size={{xs: 12, md: 10}}
 								sx={{
 									width: "90%",
 									borderRadius: ".3rem",
@@ -310,9 +275,7 @@ export default function Dashboard({ }: ListItemProps) {
 							>
 								{/* Title */}
 								<Grid
-									item
-									md={4}
-									xs={12}
+									size={{xs: 10, md: 4}}
 									sx={{
 										width: "30%",
 										display: "flex",
@@ -325,9 +288,7 @@ export default function Dashboard({ }: ListItemProps) {
 
 								{/* Description */}
 								<Grid
-									item
-									md={5}
-									xs={12}
+									size={{xs: 12, md: 5}}
 									sx={{
 										width: "50%",
 										display: "flex",
@@ -340,9 +301,7 @@ export default function Dashboard({ }: ListItemProps) {
 
 								{/* Action Buttons */}
 								<Grid
-									item
-									md={3}
-									xs={12}
+									size={{xs: 10, md: 3}}
 									sx={{
 										width: "20%",
 										display: "flex",
